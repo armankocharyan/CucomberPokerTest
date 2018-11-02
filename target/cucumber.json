@@ -1,0 +1,5684 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#The step definitions for the features below are in StrategyStepDefinitions source folder"
+      },
+      {
+        "line": 2,
+        "value": "#This feature tests if AIP exchanges the odd cards and checks the outcome after the exchange"
+      },
+      {
+        "line": 3,
+        "value": "#AIP hand is passed in the \"Given\" Step"
+      },
+      {
+        "line": 4,
+        "value": "#HTB hand(s) is passed in the first \"And\" Step"
+      },
+      {
+        "line": 7,
+        "value": "#The testers test the int getScore() method in the PokerStrategy, where the function returns a score for each hand"
+      },
+      {
+        "line": 8,
+        "value": "#Logically the stronger is the player hand the higher should be the returned score"
+      },
+      {
+        "line": 10,
+        "value": "#The testers test the various strategy methods in the PokerStrategy, to test if AIP returns indices of odd card(s)"
+      },
+      {
+        "line": 12,
+        "value": "#Steps use Assert.assertEquals Junit function to compare scores between poker hands and String returns"
+      },
+      {
+        "line": 14,
+        "value": "#The scenarios in this feature cover lines 105 to 120 on the correction Grid"
+      }
+    ],
+    "line": 18,
+    "elements": [
+      {
+        "comments": [
+          {
+            "line": 20,
+            "value": "#_SF stands for straight flush"
+          },
+          {
+            "line": 21,
+            "value": "#_RF stands for royal flush"
+          },
+          {
+            "line": 22,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 23,
+        "name": "AIP exchanges one card to make a Royal Flush and wins the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-one-card-to-make-a-royal-flush-and-wins-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 148242700,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "AIP is one card away from a Royal Flush W",
+            "match": {
+              "location": "OneCardAwayRFW.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S6",
+                  "SK",
+                  "SQ",
+                  "SJ",
+                  "SA"
+                ],
+                "line": 25
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 302200,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "HTB_SF is given a Straight Flush L",
+            "match": {
+              "location": "OneCardAwayRFW.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H6",
+                  "H7",
+                  "H8",
+                  "H9",
+                  "H10"
+                ],
+                "line": 27
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5201900,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "AIP_RF exchanges the odd Card with the right card \"S10\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "S10",
+                  "offset": 51
+                }
+              ],
+              "location": "OneCardAwayRFW.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3899900,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "AIP_RF should win the game",
+            "match": {
+              "location": "OneCardAwayRFW.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 31,
+            "value": "#_SF stands for straight flush"
+          },
+          {
+            "line": 32,
+            "value": "#_RF stands for royal flush"
+          },
+          {
+            "line": 33,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 34,
+        "name": "AIP exchanges one card to make a Royal Flush and loses the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-one-card-to-make-a-royal-flush-and-loses-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 192900,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "AIP is one card away from a Royal Flush L",
+            "match": {
+              "location": "OneCardAwayRFL.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S6",
+                  "SK",
+                  "SQ",
+                  "SJ",
+                  "SA"
+                ],
+                "line": 36
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 56400,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "HTB_SF is given a Straight Flush W",
+            "match": {
+              "location": "OneCardAwayRFL.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H6",
+                  "H7",
+                  "H8",
+                  "H9",
+                  "H10"
+                ],
+                "line": 38
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 186400,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "AIP_RF exchanges the odd Card with another card \"H2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "H2",
+                  "offset": 49
+                }
+              ],
+              "location": "OneCardAwayRFL.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 655800,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "AIP_RF should lose the game",
+            "match": {
+              "location": "OneCardAwayRFL.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 42,
+            "value": "#_FK stands for four of kind"
+          },
+          {
+            "line": 43,
+            "value": "#_SF stands for straight flush"
+          },
+          {
+            "line": 44,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 45,
+        "name": "AIP exchanges one card to make a Straight Flush and wins the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-one-card-to-make-a-straight-flush-and-wins-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 164900,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "AIP is one card away from a Straight Flush W",
+            "match": {
+              "location": "OneCardAwaySFW.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S2",
+                  "S8",
+                  "S9",
+                  "SJ",
+                  "S10"
+                ],
+                "line": 47
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 56900,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "HTB_FK is given a Four of a Kind L",
+            "match": {
+              "location": "OneCardAwaySFW.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H6",
+                  "S6",
+                  "D6",
+                  "C6",
+                  "H10"
+                ],
+                "line": 49
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 190200,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "AIP_SF exchanges the odd Card with the right card \"S7\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "S7",
+                  "offset": 51
+                }
+              ],
+              "location": "OneCardAwaySFW.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 258500,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "AIP_SF should win the game",
+            "match": {
+              "location": "OneCardAwaySFW.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 53,
+            "value": "#_FK stands for four of kind"
+          },
+          {
+            "line": 54,
+            "value": "#_SF stands for straight flush"
+          },
+          {
+            "line": 55,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 56,
+        "name": "AIP exchanges one card to make a Straight Flush and loses the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-one-card-to-make-a-straight-flush-and-loses-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 120200,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "AIP is one card away from a Straight Flush L",
+            "match": {
+              "location": "OneCardAwaySFL.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S2",
+                  "S8",
+                  "S9",
+                  "SJ",
+                  "S10"
+                ],
+                "line": 58
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 55000,
+              "status": "passed"
+            },
+            "line": 59,
+            "name": "HTB_FK is given a Four of a Kind W",
+            "match": {
+              "location": "OneCardAwaySFL.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H6",
+                  "S6",
+                  "D6",
+                  "C6",
+                  "H10"
+                ],
+                "line": 60
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 157200,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "AIP_SF exchanges the odd Card with another card \"H2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "H2",
+                  "offset": 49
+                }
+              ],
+              "location": "OneCardAwaySFL.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 156500,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "AIP_SF should lose the game",
+            "match": {
+              "location": "OneCardAwaySFL.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 64,
+            "value": "#_F stands for flush"
+          },
+          {
+            "line": 65,
+            "value": "#_FH stands for full house"
+          },
+          {
+            "line": 66,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 67,
+        "name": "AIP exchanges lowest odd card to make it a Full House and wins the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-lowest-odd-card-to-make-it-a-full-house-and-wins-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 131000,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "AIP is one card away from a Full House W",
+            "match": {
+              "location": "OneCardAwayFHW.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C2",
+                  "H9",
+                  "CJ",
+                  "SJ",
+                  "DJ"
+                ],
+                "line": 69
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 94800,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "HTB_F is given a Flush L",
+            "match": {
+              "location": "OneCardAwayFHW.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "HA",
+                  "H2",
+                  "H5",
+                  "H10"
+                ],
+                "line": 71
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 120000,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "AIP_FH exchanges the odd Card with the right card \"D9\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "D9",
+                  "offset": 51
+                }
+              ],
+              "location": "OneCardAwayFHW.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 305600,
+              "status": "passed"
+            },
+            "line": 73,
+            "name": "AIP_FH should win the game",
+            "match": {
+              "location": "OneCardAwayFHW.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 75,
+            "value": "#_F stands for flush"
+          },
+          {
+            "line": 76,
+            "value": "#_FH stands for full house"
+          },
+          {
+            "line": 77,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 78,
+        "name": "AIP exchanges lowest odd card to make it a Full House and loses the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-lowest-odd-card-to-make-it-a-full-house-and-loses-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 106700,
+              "status": "passed"
+            },
+            "line": 79,
+            "name": "AIP is one card away from a Full House L",
+            "match": {
+              "location": "OneCardAwayFHL.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C2",
+                  "H9",
+                  "CJ",
+                  "SJ",
+                  "DJ"
+                ],
+                "line": 80
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 42600,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "HTB_F is given a Flush W",
+            "match": {
+              "location": "OneCardAwayFHL.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "HA",
+                  "H2",
+                  "H5",
+                  "H10"
+                ],
+                "line": 82
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 90800,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "AIP_FH exchanges the odd Card with another card \"H2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "H2",
+                  "offset": 49
+                }
+              ],
+              "location": "OneCardAwayFHL.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 354300,
+              "status": "passed"
+            },
+            "line": 84,
+            "name": "AIP_FH should lose the game",
+            "match": {
+              "location": "OneCardAwayFHL.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 86,
+            "value": "#_TP stands for two pair"
+          },
+          {
+            "line": 87,
+            "value": "#_FH stands for full house"
+          },
+          {
+            "line": 88,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 89,
+        "name": "AIP exchanges odd card of a two pair to make it a Full House and wins the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-odd-card-of-a-two-pair-to-make-it-a-full-house-and-wins-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 98700,
+              "status": "passed"
+            },
+            "line": 90,
+            "name": "AIP has a two pair W",
+            "match": {
+              "location": "OneCardAwayFHW2.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C9",
+                  "H9",
+                  "C3",
+                  "SJ",
+                  "DJ"
+                ],
+                "line": 91
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 40100,
+              "status": "passed"
+            },
+            "line": 92,
+            "name": "HTB_F_TP is given a Flush L",
+            "match": {
+              "location": "OneCardAwayFHW2.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "HA",
+                  "H2",
+                  "H5",
+                  "H10"
+                ],
+                "line": 93
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 86400,
+              "status": "passed"
+            },
+            "line": 94,
+            "name": "AIP_FH_TP exchanges the odd Card of the two pair with the right card \"CJ\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "CJ",
+                  "offset": 70
+                }
+              ],
+              "location": "OneCardAwayFHW2.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 179900,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "AIP_FH_TP should win the game",
+            "match": {
+              "location": "OneCardAwayFHW2.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 97,
+            "value": "#_F stands for flush"
+          },
+          {
+            "line": 98,
+            "value": "#_TP stands for two pair"
+          },
+          {
+            "line": 99,
+            "value": "#_FH stands for full house"
+          },
+          {
+            "line": 100,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 101,
+        "name": "AIP exchanges odd card of a two pair to make it a Full House and wins the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-odd-card-of-a-two-pair-to-make-it-a-full-house-and-wins-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 52200,
+              "status": "passed"
+            },
+            "line": 102,
+            "name": "AIP has a two pair W",
+            "match": {
+              "location": "OneCardAwayFHW2.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C9",
+                  "H9",
+                  "C3",
+                  "SJ",
+                  "DJ"
+                ],
+                "line": 103
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1414100,
+              "status": "passed"
+            },
+            "line": 104,
+            "name": "HTB_F_TP is given a Flush L",
+            "match": {
+              "location": "OneCardAwayFHW2.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "HA",
+                  "H2",
+                  "H5",
+                  "H10"
+                ],
+                "line": 105
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 81700,
+              "status": "passed"
+            },
+            "line": 106,
+            "name": "AIP_FH_TP exchanges the odd Card of the two pair with the right card \"CJ\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "CJ",
+                  "offset": 70
+                }
+              ],
+              "location": "OneCardAwayFHW2.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 732800,
+              "status": "passed"
+            },
+            "line": 107,
+            "name": "AIP_FH_TP should win the game",
+            "match": {
+              "location": "OneCardAwayFHW2.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 109,
+            "value": "#_F stands for flush"
+          },
+          {
+            "line": 110,
+            "value": "#_TP stands for two pair"
+          },
+          {
+            "line": 111,
+            "value": "#_FH stands for full house"
+          },
+          {
+            "line": 112,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 113,
+        "name": "AIP exchanges odd card of a two pair to make it a Full House and loses the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-odd-card-of-a-two-pair-to-make-it-a-full-house-and-loses-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 8421000,
+              "status": "passed"
+            },
+            "line": 114,
+            "name": "AIP has a two pair L",
+            "match": {
+              "location": "OneCardAwayFHL2.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C9",
+                  "H9",
+                  "C3",
+                  "SJ",
+                  "DJ"
+                ],
+                "line": 115
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 42400,
+              "status": "passed"
+            },
+            "line": 116,
+            "name": "HTB_F_TP is given a Flush W",
+            "match": {
+              "location": "OneCardAwayFHL2.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "HA",
+                  "H2",
+                  "H5",
+                  "H10"
+                ],
+                "line": 117
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 75000,
+              "status": "passed"
+            },
+            "line": 118,
+            "name": "AIP_FH_TP exchanges the odd Card of the two pair with another card \"CK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "CK",
+                  "offset": 68
+                }
+              ],
+              "location": "OneCardAwayFHL2.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 194200,
+              "status": "passed"
+            },
+            "line": 119,
+            "name": "AIP_FH_TP should lose the game",
+            "match": {
+              "location": "OneCardAwayFHL2.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 121,
+            "value": "#_S stands for straight"
+          },
+          {
+            "line": 122,
+            "value": "#_F stands for flush"
+          },
+          {
+            "line": 123,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 124,
+        "name": "AIP exchanges card to get a flush and wins the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-card-to-get-a-flush-and-wins-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 107200,
+              "status": "passed"
+            },
+            "line": 125,
+            "name": "AIP is one card away from Flush W",
+            "match": {
+              "location": "OneCardAwayFlushW.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "HA",
+                  "C2",
+                  "H5",
+                  "H10"
+                ],
+                "line": 126
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 68400,
+              "status": "passed"
+            },
+            "line": 127,
+            "name": "HTB_S is given a Straight L",
+            "match": {
+              "location": "OneCardAwayFlushW.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C8",
+                  "S9",
+                  "H10",
+                  "DQ",
+                  "CJ"
+                ],
+                "line": 128
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 97900,
+              "status": "passed"
+            },
+            "line": 129,
+            "name": "AIP_F exchanges the odd card to with \"H6\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "H6",
+                  "offset": 38
+                }
+              ],
+              "location": "OneCardAwayFlushW.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 337500,
+              "status": "passed"
+            },
+            "line": 130,
+            "name": "AIP_F should win the game",
+            "match": {
+              "location": "OneCardAwayFlushW.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 132,
+            "value": "#_S stands for straight"
+          },
+          {
+            "line": 133,
+            "value": "#_F stands for flush"
+          },
+          {
+            "line": 134,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 135,
+        "name": "AIP exchanges card to get a flush and loses the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-card-to-get-a-flush-and-loses-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 139500,
+              "status": "passed"
+            },
+            "line": 136,
+            "name": "AIP is one card away from Flush L",
+            "match": {
+              "location": "OneCardAwayFlushL.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "HA",
+                  "C2",
+                  "H5",
+                  "H10"
+                ],
+                "line": 137
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 54400,
+              "status": "passed"
+            },
+            "line": 138,
+            "name": "HTB_S is given a Straight W",
+            "match": {
+              "location": "OneCardAwayFlushL.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C8",
+                  "S9",
+                  "H10",
+                  "DQ",
+                  "CJ"
+                ],
+                "line": 139
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 119600,
+              "status": "passed"
+            },
+            "line": 140,
+            "name": "AIP_F exchanges the odd card to with another card \"D6\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "D6",
+                  "offset": 51
+                }
+              ],
+              "location": "OneCardAwayFlushL.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 395700,
+              "status": "passed"
+            },
+            "line": 141,
+            "name": "AIP_F should lose the game",
+            "match": {
+              "location": "OneCardAwayFlushL.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 143,
+            "value": "#_S stands for straight"
+          },
+          {
+            "line": 144,
+            "value": "#_F stands for flush"
+          },
+          {
+            "line": 145,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 146,
+        "name": "AIP exchanges card to get a straight and wins the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-card-to-get-a-straight-and-wins-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 123900,
+              "status": "passed"
+            },
+            "line": 147,
+            "name": "AIP is one card away from Straight W",
+            "match": {
+              "location": "OneCardAwayStraightW.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C8",
+                  "S9",
+                  "H10",
+                  "DQ",
+                  "C3"
+                ],
+                "line": 148
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 69600,
+              "status": "passed"
+            },
+            "line": 149,
+            "name": "HTB_T is given a Three of a kind L",
+            "match": {
+              "location": "OneCardAwayStraightW.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C9",
+                  "H9",
+                  "C3",
+                  "SJ",
+                  "D9"
+                ],
+                "line": 150
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 258200,
+              "status": "passed"
+            },
+            "line": 151,
+            "name": "AIP_S exchanges the odd card to with \"CJ\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "CJ",
+                  "offset": 38
+                }
+              ],
+              "location": "OneCardAwayStraightW.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 199500,
+              "status": "passed"
+            },
+            "line": 152,
+            "name": "AIP_S should win the game",
+            "match": {
+              "location": "OneCardAwayStraightW.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 154,
+            "value": "#_S stands for straight"
+          },
+          {
+            "line": 155,
+            "value": "#_T stands for Three of a kind"
+          },
+          {
+            "line": 156,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 157,
+        "name": "AIP exchanges card to get a straight and loses the game",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-exchanges-card-to-get-a-straight-and-loses-the-game",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 115400,
+              "status": "passed"
+            },
+            "line": 158,
+            "name": "AIP is one card away from Straight L",
+            "match": {
+              "location": "OneCardAwayFromStraightL.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C8",
+                  "S9",
+                  "H10",
+                  "DQ",
+                  "C3"
+                ],
+                "line": 159
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 44900,
+              "status": "passed"
+            },
+            "line": 160,
+            "name": "HTB_T is given a Three of a kind W",
+            "match": {
+              "location": "OneCardAwayFromStraightL.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C9",
+                  "H9",
+                  "C3",
+                  "SJ",
+                  "D9"
+                ],
+                "line": 161
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 103900,
+              "status": "passed"
+            },
+            "line": 162,
+            "name": "AIP_S exchanges the odd card to with another card \"C2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "C2",
+                  "offset": 51
+                }
+              ],
+              "location": "OneCardAwayFromStraightL.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 230000,
+              "status": "passed"
+            },
+            "line": 163,
+            "name": "AIP_S should lose the game",
+            "match": {
+              "location": "OneCardAwayFromStraightL.determineWiner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 165,
+            "value": "#_S stands for straight"
+          },
+          {
+            "line": 166,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 167,
+        "name": "AIP has three cards of the same suit and exchanges other two",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-has-three-cards-of-the-same-suit-and-exchanges-other-two",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 109500,
+              "status": "passed"
+            },
+            "line": 168,
+            "name": "AIP is given a hand with three cards with the same suit",
+            "match": {
+              "location": "SameThreeSuit.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C8",
+                  "C9",
+                  "HA",
+                  "DQ",
+                  "C3"
+                ],
+                "line": 169
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 172900,
+              "status": "passed"
+            },
+            "line": 170,
+            "name": "AIP_S exchanges the odd cards with two cards \"C10 CA\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "C10 CA",
+                  "offset": 46
+                }
+              ],
+              "location": "SameThreeSuit.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 110700,
+              "status": "passed"
+            },
+            "line": 171,
+            "name": "AIP_S should have a new hand with those two added cards",
+            "match": {
+              "location": "SameThreeSuit.newHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "C8",
+                  "C9",
+                  "C10",
+                  "CA",
+                  "C3"
+                ],
+                "line": 172
+              }
+            ],
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 174,
+            "value": "#_R stands for rank"
+          },
+          {
+            "line": 175,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 176,
+        "name": "AIP has three cards of the same rank and exchanges other two",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-has-three-cards-of-the-same-rank-and-exchanges-other-two",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 111100,
+              "status": "passed"
+            },
+            "line": 177,
+            "name": "AIP is given a hand with three cards with the same rank",
+            "match": {
+              "location": "SameThreeRank.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "S9",
+                  "DQ",
+                  "C3"
+                ],
+                "line": 178
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 255900,
+              "status": "passed"
+            },
+            "line": 179,
+            "name": "AIP_R exchanges the odd cards with two new cards \"D9 C10\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "D9 C10",
+                  "offset": 50
+                }
+              ],
+              "location": "SameThreeRank.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 108200,
+              "status": "passed"
+            },
+            "line": 180,
+            "name": "AIP_R should have a new hand with those two added cards",
+            "match": {
+              "location": "SameThreeRank.newHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "S9",
+                  "D9",
+                  "C10"
+                ],
+                "line": 181
+              }
+            ],
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 183,
+            "value": "#_P stands for pair"
+          },
+          {
+            "line": 184,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 185,
+        "name": "AIP has a pair and it exchanges the three other cards",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-has-a-pair-and-it-exchanges-the-three-other-cards",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 115600,
+              "status": "passed"
+            },
+            "line": 186,
+            "name": "AIP is given a hand with a pair and three random cards",
+            "match": {
+              "location": "TwoPairExchange.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "S2",
+                  "DQ",
+                  "C3"
+                ],
+                "line": 187
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 177400,
+              "status": "passed"
+            },
+            "line": 188,
+            "name": "AIP_P exchanges the odd cards with three new cards \"D9 S9 H10\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "D9 S9 H10",
+                  "offset": 52
+                }
+              ],
+              "location": "TwoPairExchange.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 116200,
+              "status": "passed"
+            },
+            "line": 189,
+            "name": "AIP_P should have a new hand with those three added cards",
+            "match": {
+              "location": "TwoPairExchange.newHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "D9",
+                  "S9",
+                  "H10"
+                ],
+                "line": 190
+              }
+            ],
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "comments": [
+          {
+            "line": 192,
+            "value": "#_H stands for high card"
+          },
+          {
+            "line": 193,
+            "value": "#L is for loss W is for win"
+          }
+        ],
+        "line": 194,
+        "name": "AIP has keeps two high cards and exchanges the other three",
+        "description": "",
+        "id": "aip-exchanges-card/cards-to-play-htp;aip-has-keeps-two-high-cards-and-exchanges-the-other-three",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 121500,
+              "status": "passed"
+            },
+            "line": 195,
+            "name": "AIP is given five random cards",
+            "match": {
+              "location": "HighCardExchange.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C5",
+                  "S2",
+                  "DQ",
+                  "C3"
+                ],
+                "line": 196
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 405300,
+              "status": "passed"
+            },
+            "line": 197,
+            "name": "AIP_H exchanges the three low cards with new cards \"D10 S10 H10\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "D10 S10 H10",
+                  "offset": 52
+                }
+              ],
+              "location": "HighCardExchange.cardExchangeAIP(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 135200,
+              "status": "passed"
+            },
+            "line": 198,
+            "name": "AIP_H should have a new hand with those three added cards",
+            "match": {
+              "location": "HighCardExchange.newHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "D10",
+                  "S10",
+                  "DQ",
+                  "H10"
+                ],
+                "line": 199
+              }
+            ],
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "AIP exchanges card/cards to play HTP",
+    "description": "",
+    "id": "aip-exchanges-card/cards-to-play-htp",
+    "keyword": "Feature",
+    "uri": "AIPStrategy.feature"
+  },
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#The step definitions for the features below are in AIPWinningStepDefinitions source folder"
+      },
+      {
+        "line": 2,
+        "value": "#This feature tests if AIP holds and beats HTB in multiple scenarios"
+      },
+      {
+        "line": 3,
+        "value": "#AIP hand is passed in the \"Given\" Step"
+      },
+      {
+        "line": 4,
+        "value": "#AIP hand is held in the first \"And\" Step"
+      },
+      {
+        "line": 5,
+        "value": "#HTB hand(s) is passed in the second \"And\" Step"
+      },
+      {
+        "line": 8,
+        "value": "#The testers test the int getScore() method in the PokerStrategy, where the function returns a score for each hand"
+      },
+      {
+        "line": 9,
+        "value": "#Logically the stronger is the player hand the higher should be the returned score"
+      },
+      {
+        "line": 11,
+        "value": "#The testers test the String isStrategyNeeded() method in the PokerStrategy, to test if AIP holds the cards"
+      },
+      {
+        "line": 12,
+        "value": "#isStrategyNeeded() returns the name of the given poker hand if strategy is not needed"
+      },
+      {
+        "line": 14,
+        "value": "#Steps use Assert.assertEquals Junit function to compare scores between poker hands and String returns"
+      },
+      {
+        "line": 16,
+        "value": "#The scenarios in this feature cover lines 65 to 103 on the correction Grid"
+      }
+    ],
+    "line": 20,
+    "elements": [
+      {
+        "line": 22,
+        "name": "AIP has a Royal flush and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-royal-flush-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 100500,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "AIP is given a Royal Flush",
+            "match": {
+              "location": "RoyalFlushAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "SJ",
+                  "SQ",
+                  "SK",
+                  "SA"
+                ],
+                "line": 24
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 78500,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "AIP Holds Royal Flush",
+            "match": {
+              "location": "RoyalFlushAIP.holdsCards()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 69800,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "HTB is given all the other lower nine hands",
+            "match": {
+              "location": "RoyalFlushAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "D9",
+                  "D8",
+                  "D7",
+                  "D6"
+                ],
+                "line": 27
+              },
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "S10",
+                  "D6"
+                ],
+                "line": 28
+              },
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "D7",
+                  "S7"
+                ],
+                "line": 29
+              },
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 30
+              },
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 31
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 32
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 33
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 34
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 35
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 726200,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "AIP should win all the nine games",
+            "match": {
+              "location": "RoyalFlushAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 38,
+        "name": "AIP has a Straight flush and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-straight-flush-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 124500,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "AIP is given a Straight Flush",
+            "match": {
+              "location": "StraightFlushAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "D9",
+                  "D8",
+                  "D7",
+                  "D6"
+                ],
+                "line": 40
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 113300,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "AIP Holds Straight Flush",
+            "match": {
+              "location": "StraightFlushAIP.holdsCards()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 59000,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "HTB is given all the other lower eight hands",
+            "match": {
+              "location": "StraightFlushAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "S10",
+                  "D6"
+                ],
+                "line": 43
+              },
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "D7",
+                  "S7"
+                ],
+                "line": 44
+              },
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 45
+              },
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 46
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 47
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 48
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 49
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 50
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 871800,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "AIP should win all the eight games",
+            "match": {
+              "location": "StraightFlushAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 53,
+        "name": "AIP has a Four of a Kind and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-four-of-a-kind-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 112300,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "AIP is given a Four of Kind",
+            "match": {
+              "location": "FourOfKindAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "S10",
+                  "D6"
+                ],
+                "line": 55
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 48400,
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "AIP Holds Four of a Kind",
+            "match": {
+              "location": "FourOfKindAIP.holdsCards()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 75300,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "HTB is given all the other lower seven hands",
+            "match": {
+              "location": "FourOfKindAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "D7",
+                  "S7"
+                ],
+                "line": 58
+              },
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 59
+              },
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 60
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 61
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 62
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 63
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 64
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 608400,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "AIP should win all the seven games",
+            "match": {
+              "location": "FourOfKindAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 67,
+        "name": "AIP has a Full House and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-full-house-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 105300,
+              "status": "passed"
+            },
+            "line": 68,
+            "name": "AIP is given a Full House",
+            "match": {
+              "location": "FullHouseAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "D7",
+                  "S7"
+                ],
+                "line": 69
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 90300,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "AIP Holds a Full House",
+            "match": {
+              "location": "FullHouseAIP.holdsCards()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 59600,
+              "status": "passed"
+            },
+            "line": 71,
+            "name": "HTB is given all the other lower six hands",
+            "match": {
+              "location": "FullHouseAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 72
+              },
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 73
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 74
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 75
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 76
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 77
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 684900,
+              "status": "passed"
+            },
+            "line": 78,
+            "name": "AIP should win all the six games",
+            "match": {
+              "location": "FullHouseAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 80,
+        "name": "AIP has a Flush and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-flush-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 111100,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "AIP is given a Flush",
+            "match": {
+              "location": "FlushAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 82
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 157600,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "AIP Holds a Flush",
+            "match": {
+              "location": "FlushAIP.holdsCards()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 136600,
+              "status": "passed"
+            },
+            "line": 84,
+            "name": "HTB is given all the other lower five hands",
+            "match": {
+              "location": "FlushAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 85
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 86
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 87
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 88
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 89
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 841400,
+              "status": "passed"
+            },
+            "line": 90,
+            "name": "AIP should win all the five games",
+            "match": {
+              "location": "FlushAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 92,
+        "name": "AIP has a Straight and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-straight-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 97700,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "AIP is given a Straight",
+            "match": {
+              "location": "StraightAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 94
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 44500,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "HTB is given all the other lower four hands",
+            "match": {
+              "location": "StraightAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 96
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 97
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 98
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 99
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 448400,
+              "status": "passed"
+            },
+            "line": 100,
+            "name": "AIP should win all the four games",
+            "match": {
+              "location": "StraightAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 102,
+        "name": "AIP has a Three of a kind and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-three-of-a-kind-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 296700,
+              "status": "passed"
+            },
+            "line": 103,
+            "name": "AIP is given a Three of a kind",
+            "match": {
+              "location": "ThreeOfAKindAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 104
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 45400,
+              "status": "passed"
+            },
+            "line": 105,
+            "name": "HTB is given all the other lower three hands",
+            "match": {
+              "location": "ThreeOfAKindAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 106
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 107
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 108
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 515800,
+              "status": "passed"
+            },
+            "line": 109,
+            "name": "AIP should win all the three games",
+            "match": {
+              "location": "ThreeOfAKindAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 111,
+        "name": "AIP has a Two pair and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-two-pair-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 117300,
+              "status": "passed"
+            },
+            "line": 112,
+            "name": "AIP is given a Two Pair",
+            "match": {
+              "location": "TwoPairAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 113
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 52900,
+              "status": "passed"
+            },
+            "line": 114,
+            "name": "HTB is given all the other lower two hands",
+            "match": {
+              "location": "TwoPairAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 115
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 116
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 293600,
+              "status": "passed"
+            },
+            "line": 117,
+            "name": "AIP should win all the two games",
+            "match": {
+              "location": "TwoPairAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 119,
+        "name": "AIP has a pair and plays against HTB",
+        "description": "",
+        "id": "aip-plays-against-htb;aip-has-a-pair-and-plays-against-htb",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 85300,
+              "status": "passed"
+            },
+            "line": 120,
+            "name": "AIP is given a Pair",
+            "match": {
+              "location": "PairAIP.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 121
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 34700,
+              "status": "passed"
+            },
+            "line": 122,
+            "name": "HTB has a high card",
+            "match": {
+              "location": "PairAIP.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 123
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 192300,
+              "status": "passed"
+            },
+            "line": 124,
+            "name": "AIP should win the game",
+            "match": {
+              "location": "PairAIP.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "AIP plays against HTB",
+    "description": "",
+    "id": "aip-plays-against-htb",
+    "keyword": "Feature",
+    "uri": "AIPWinner.feature"
+  },
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#The step definitions for the features below are in HTBWinningStepDefinitions source folder"
+      },
+      {
+        "line": 2,
+        "value": "#This feature tests if HTB beats AIP in multiple scenarios"
+      },
+      {
+        "line": 3,
+        "value": "#HTB hand is passed in the \"Given\" Stepand AIP hand(s) are passed in the \"And\" step for each scenario"
+      },
+      {
+        "line": 5,
+        "value": "#The functions test the int getScore() method in the PokerStrategy, where the function returns a score for each hand"
+      },
+      {
+        "line": 6,
+        "value": "#Logically the stronger is the player hand the higher should be the returned score"
+      },
+      {
+        "line": 8,
+        "value": "#Definitios use Assert.assertEquals Junit function to compare scores between poker hands"
+      },
+      {
+        "line": 10,
+        "value": "#The scenarios in this feature cover lines 19 to 63 on the correction Grid"
+      }
+    ],
+    "line": 13,
+    "elements": [
+      {
+        "line": 15,
+        "name": "HTB has a Royal flush and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htb-has-a-royal-flush-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 124900,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "HTB is given a Royal Flush",
+            "match": {
+              "location": "RoyalFlushHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "SJ",
+                  "SQ",
+                  "SK",
+                  "SA"
+                ],
+                "line": 17
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 116800,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "AIP is given all the other lower nine hands",
+            "match": {
+              "location": "RoyalFlushHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "D9",
+                  "D8",
+                  "D7",
+                  "D6"
+                ],
+                "line": 19
+              },
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "S10",
+                  "D6"
+                ],
+                "line": 20
+              },
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "D7",
+                  "S7"
+                ],
+                "line": 21
+              },
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 22
+              },
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 23
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 24
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 25
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 26
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 27
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 7682100,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "HTB should win all the nine games",
+            "match": {
+              "location": "RoyalFlushHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 30,
+        "name": "HTP has a Straight flush and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htp-has-a-straight-flush-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 147800,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "HTB is given a Straight Flush",
+            "match": {
+              "location": "StraightFlushHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "D9",
+                  "D8",
+                  "D7",
+                  "D6"
+                ],
+                "line": 32
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 59100,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "AIP is given all the other lower eight hands",
+            "match": {
+              "location": "StraightFlushHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "S10",
+                  "D6"
+                ],
+                "line": 34
+              },
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "D7",
+                  "S7"
+                ],
+                "line": 35
+              },
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 36
+              },
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 37
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 38
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 39
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 40
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 41
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1015100,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "HTB should win all the eight games",
+            "match": {
+              "location": "StraightFlushHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 44,
+        "name": "HTP has a Four of a Kind and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htp-has-a-four-of-a-kind-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 108500,
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "HTB is given a Four of Kind",
+            "match": {
+              "location": "FourOfKindHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "S10",
+                  "D6"
+                ],
+                "line": 46
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 68700,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "AIP is given all the other lower seven hands",
+            "match": {
+              "location": "FourOfKindHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "D7",
+                  "S7"
+                ],
+                "line": 48
+              },
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 49
+              },
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 50
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 51
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 52
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 53
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 54
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 912900,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "HTB should win all the seven games",
+            "match": {
+              "location": "FourOfKindHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 57,
+        "name": "HTP has a Full House and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htp-has-a-full-house-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 97500,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "HTB is given a Full House",
+            "match": {
+              "location": "FullHouseHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "H10",
+                  "C10",
+                  "D7",
+                  "S7"
+                ],
+                "line": 59
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 116000,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "AIP is given all the other lower six hands",
+            "match": {
+              "location": "FullHouseHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 61
+              },
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 62
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 63
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 64
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 65
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 66
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4891400,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "HTB should win all the six games",
+            "match": {
+              "location": "FullHouseHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 69,
+        "name": "HTP has a Flush and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htp-has-a-flush-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 402300,
+              "status": "passed"
+            },
+            "line": 70,
+            "name": "HTB is given a Flush",
+            "match": {
+              "location": "FlushHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D2",
+                  "D9",
+                  "D10",
+                  "D7",
+                  "DK"
+                ],
+                "line": 71
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 62100,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "AIP is given all the other lower five hands",
+            "match": {
+              "location": "FlushHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 73
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 74
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 75
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 76
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 77
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3137700,
+              "status": "passed"
+            },
+            "line": 78,
+            "name": "HTB should win all the five games",
+            "match": {
+              "location": "FlushHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 80,
+        "name": "HTB has a Straight and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htb-has-a-straight-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 101100,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "HTB is given a Straight",
+            "match": {
+              "location": "StraightHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "D9",
+                  "C8",
+                  "D7",
+                  "S6"
+                ],
+                "line": 82
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 63000,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "AIP is given all the other lower four hands",
+            "match": {
+              "location": "StraightHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 84
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 85
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 86
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 87
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 424000,
+              "status": "passed"
+            },
+            "line": 88,
+            "name": "HTB should win all the four games",
+            "match": {
+              "location": "StraightHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 90,
+        "name": "HTB has a Three of a kind and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htb-has-a-three-of-a-kind-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 105300,
+              "status": "passed"
+            },
+            "line": 91,
+            "name": "HTB is given a Three of a kind",
+            "match": {
+              "location": "ThreeOfAKindHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "S10",
+                  "D7",
+                  "D6"
+                ],
+                "line": 92
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 51300,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "AIP is given all the other lower three hands",
+            "match": {
+              "location": "ThreeOfAKindHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 94
+              },
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 95
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 96
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4010400,
+              "status": "passed"
+            },
+            "line": 97,
+            "name": "HTB should win all the three games",
+            "match": {
+              "location": "ThreeOfAKindHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 99,
+        "name": "HTB has a Two pair and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htb-has-a-two-pair-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 149300,
+              "status": "passed"
+            },
+            "line": 100,
+            "name": "HTB is given a Two Pair",
+            "match": {
+              "location": "TwoPairHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SA",
+                  "D7",
+                  "S7"
+                ],
+                "line": 101
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 54800,
+              "status": "passed"
+            },
+            "line": 102,
+            "name": "AIP is given all the other lower two hands",
+            "match": {
+              "location": "TwoPairHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 103
+              },
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 104
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 307000,
+              "status": "passed"
+            },
+            "line": 105,
+            "name": "HTB should win all the two games",
+            "match": {
+              "location": "TwoPairHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 107,
+        "name": "HTB has a pair and plays against AIP",
+        "description": "",
+        "id": "htb-plays-against-aip;htb-has-a-pair-and-plays-against-aip",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 108200,
+              "status": "passed"
+            },
+            "line": 108,
+            "name": "HTB is given a Pair",
+            "match": {
+              "location": "PairHTB.storeHTPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "D10",
+                  "C10",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 109
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 46300,
+              "status": "passed"
+            },
+            "line": 110,
+            "name": "AIP has a high card",
+            "match": {
+              "location": "PairHTB.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "DA",
+                  "C2",
+                  "SK",
+                  "D7",
+                  "D6"
+                ],
+                "line": 111
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 222100,
+              "status": "passed"
+            },
+            "line": 112,
+            "name": "HTB should win the game",
+            "match": {
+              "location": "PairHTB.determineTheWinner()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "HTB plays against AIP",
+    "description": "",
+    "id": "htb-plays-against-aip",
+    "keyword": "Feature",
+    "uri": "HTBWinner.feature"
+  },
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#The step definitions for the features below are in HandStepDefinitions source folder"
+      },
+      {
+        "line": 2,
+        "value": "#This feature tests if the poker game recognizes all 120 permutations of all 9 hands"
+      },
+      {
+        "line": 3,
+        "value": "#All the 9 hands are passed in as example tables in the given step for scenario"
+      },
+      {
+        "line": 4,
+        "value": "#Definitios use Assert.assertEquals Junit function to see if all 120 scenarios have passed"
+      },
+      {
+        "line": 5,
+        "value": "#Permutation Class in the HandStepDefinitions statically tests each permutation of these hands"
+      },
+      {
+        "line": 6,
+        "value": "#The scenarios in this feature cover lines 8 to 16 on the correction Grid"
+      }
+    ],
+    "line": 8,
+    "elements": [
+      {
+        "line": 10,
+        "name": "A royal flush hand should pass for isRoyalFlush test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-royal-flush-hand-should-pass-for-isroyalflush-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 192900,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "A royal flush poker hand in any order",
+            "match": {
+              "location": "RoyalFlushStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "SA",
+                  "SK",
+                  "SQ",
+                  "SJ",
+                  "S10"
+                ],
+                "line": 12
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2481100,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I should get true for royal flush in any poker hand permutation",
+            "match": {
+              "location": "RoyalFlushStepDefinitions.checkCardsForRoyalFlush()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 15,
+        "name": "A straight flush hand should pass for isStraightFlush test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-straight-flush-hand-should-pass-for-isstraightflush-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 104400,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "A straight flush poker hand in any order",
+            "match": {
+              "location": "StraightFlushStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S5",
+                  "S6",
+                  "S7",
+                  "S8",
+                  "S9"
+                ],
+                "line": 17
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1926100,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I should get true for straight flush in any poker hand permutation",
+            "match": {
+              "location": "StraightFlushStepDefinitions.checkCardsForStraightFlush()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 20,
+        "name": "A four of a kind poker hand should pass for isFourKind test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-four-of-a-kind-poker-hand-should-pass-for-isfourkind-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 133800,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "A four of a kind poker hand in any order",
+            "match": {
+              "location": "FourOfKindStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S5",
+                  "H5",
+                  "C5",
+                  "D5",
+                  "S9"
+                ],
+                "line": 22
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 163700,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "I should get true for four of a kind in any poker hand permutation",
+            "match": {
+              "location": "FourOfKindStepDefinitions.checkCardsForFourOfKind()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 25,
+        "name": "A full house hand should pass for isFullHouse test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-full-house-hand-should-pass-for-isfullhouse-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 106400,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "A full house poker hand in any order",
+            "match": {
+              "location": "FullHouseStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "C8",
+                  "S8",
+                  "DA",
+                  "SA"
+                ],
+                "line": 27
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 448600,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "I should get true for full house in any poker hand permutation",
+            "match": {
+              "location": "FullHouseStepDefinitions.checkCardsFoFullHouse()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 30,
+        "name": "A flush hand should pass for isFlush test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-flush-hand-should-pass-for-isflush-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 112700,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "A flush poker hand in any order",
+            "match": {
+              "location": "FlushStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S6",
+                  "S3",
+                  "S8",
+                  "SJ",
+                  "SA"
+                ],
+                "line": 32
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1995000,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "I should get true for flush in any poker hand permutation",
+            "match": {
+              "location": "FlushStepDefinitions.checkCardsForFlush()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 35,
+        "name": "A straight hand should pass for isStraight test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-straight-hand-should-pass-for-isstraight-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 117200,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "A straight poker hand in any order",
+            "match": {
+              "location": "StraightStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H5",
+                  "S6",
+                  "D7",
+                  "S8",
+                  "C9"
+                ],
+                "line": 37
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 7151200,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "I should get true for straight in any poker hand permutation",
+            "match": {
+              "location": "StraightStepDefinitions.checkCardsForStraight()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 40,
+        "name": "A three of a kind poker hand should pass for isThreeKind test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-three-of-a-kind-poker-hand-should-pass-for-isthreekind-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 101200,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "A three of a kind poker hand in any order",
+            "match": {
+              "location": "ThreeOfKindStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H5",
+                  "S6",
+                  "D8",
+                  "H6",
+                  "C6"
+                ],
+                "line": 42
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 445200,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "I should get true for three of a kind in any poker hand permutation",
+            "match": {
+              "location": "ThreeOfKindStepDefinitions.checkCardsForThreeOfKind()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 45,
+        "name": "A two pair of a poker hand should pass for isTwoPair test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-two-pair-of-a-poker-hand-should-pass-for-istwopair-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 114300,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "A two pair poker hand in any order",
+            "match": {
+              "location": "TwoPairStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H5",
+                  "S5",
+                  "D8",
+                  "H6",
+                  "C6"
+                ],
+                "line": 47
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2791800,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "I should get true for two pair in any poker hand permutation",
+            "match": {
+              "location": "TwoPairStepDefinitions.checkCardsForTwoPairDefinition()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 50,
+        "name": "A pair of a poker hand should pass for isPair test in any order",
+        "description": "",
+        "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations;a-pair-of-a-poker-hand-should-pass-for-ispair-test-in-any-order",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 161200,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "A pair poker hand in any order",
+            "match": {
+              "location": "PairStepDefinitions.storePokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H5",
+                  "S5",
+                  "D8",
+                  "H6",
+                  "C6"
+                ],
+                "line": 52
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1200500,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "I should get true for pair in any poker hand permutation",
+            "match": {
+              "location": "PairStepDefinitions.checkCardsForPair()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Test recognize all nine poker hands with all possible card permutations",
+    "description": "",
+    "id": "test-recognize-all-nine-poker-hands-with-all-possible-card-permutations",
+    "keyword": "Feature",
+    "uri": "PokerHandPermutations.feature"
+  },
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#The step definitions for the features below are in SpecialWinnerStepDefinitions source folder"
+      },
+      {
+        "line": 2,
+        "value": "#This feature tests for winners between AIP and HTP in multiple scenarios"
+      },
+      {
+        "line": 3,
+        "value": "#AIP hand is passed in the \"Given\" Stepand HTB hand are passed in the \"And\" step for each scenario"
+      },
+      {
+        "line": 5,
+        "value": "#The functions test the int getScore() method in the PokerStrategy, where the function returns a score for each hand"
+      },
+      {
+        "line": 6,
+        "value": "#Logically the stronger is the player hand the higher should be the returned score"
+      },
+      {
+        "line": 8,
+        "value": "#Definitios use Assert.assertEquals Junit function to compare scores between poker hands"
+      },
+      {
+        "line": 10,
+        "value": "#The scenarios in this feature cover lines 123 to 149 on the correction Grid"
+      }
+    ],
+    "line": 13,
+    "elements": [
+      {
+        "line": 15,
+        "name": "AIP and HTB both have a Royal FLush but AIP wins because it has a higher suit",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-royal-flush-but-aip-wins-because-it-has-a-higher-suit",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 116300,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "AIP has a spades Royal Flush",
+            "match": {
+              "location": "RFSuitWinner.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "SK",
+                  "SQ",
+                  "SJ",
+                  "SA"
+                ],
+                "line": 17
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 42900,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "HTB has a hearts Royal Flush",
+            "match": {
+              "location": "RFSuitWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "HJ",
+                  "HQ",
+                  "HK",
+                  "HA"
+                ],
+                "line": 19
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 93900,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "AIP should win because spades is the higher suit",
+            "match": {
+              "location": "RFSuitWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 22,
+        "name": "AIP and HTB both have a Straight FLush but AIP wins because it has a higher card",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-straight-flush-but-aip-wins-because-it-has-a-higher-card",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 117700,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "AIP has a hearts Straight Flush with a high card",
+            "match": {
+              "location": "SFHighCardWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "H9",
+                  "H8",
+                  "H7",
+                  "H6"
+                ],
+                "line": 24
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 69900,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "HTB has a spades Straight Flush with a low card",
+            "match": {
+              "location": "SFHighCardWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S9",
+                  "S8",
+                  "S7",
+                  "S6",
+                  "S5"
+                ],
+                "line": 26
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 364200,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "AIP should win because it has the higher high card",
+            "match": {
+              "location": "SFHighCardWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 29,
+        "name": "AIP and HTB both have a Straight FLush but AIP wins because it has a higher suit",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-straight-flush-but-aip-wins-because-it-has-a-higher-suit",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 150800,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "AIP has a spades Straight Flush",
+            "match": {
+              "location": "SFSuitWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "S9",
+                  "S8",
+                  "S7",
+                  "S6"
+                ],
+                "line": 31
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 45000,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "HTB has a hearts Straight Flush",
+            "match": {
+              "location": "SFSuitWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "H9",
+                  "H8",
+                  "H7",
+                  "H6"
+                ],
+                "line": 33
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 750600,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "AIP should win because spades SF is higher",
+            "match": {
+              "location": "SFSuitWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 36,
+        "name": "AIP and HTB both have a Four of a kind but AIP wins because it has the higher quadruplet",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-four-of-a-kind-but-aip-wins-because-it-has-the-higher-quadruplet",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 175500,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "AIP has a four of a kind with a high quadruplet",
+            "match": {
+              "location": "FourOfKindHighWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "D10",
+                  "H10",
+                  "C10",
+                  "S6"
+                ],
+                "line": 38
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 56200,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "HTB has a four of a kind with a low quadruplet",
+            "match": {
+              "location": "FourOfKindHighWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "D9",
+                  "S9",
+                  "H6"
+                ],
+                "line": 40
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 270900,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "AIP should win because it has the higher quadruplet",
+            "match": {
+              "location": "FourOfKindHighWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 43,
+        "name": "AIP and HTB both have a Full House but AIP wins because it has the higher triplet",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-full-house-but-aip-wins-because-it-has-the-higher-triplet",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 111400,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "AIP has a full house with a high triplet",
+            "match": {
+              "location": "FullHouseHighWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "D10",
+                  "H10",
+                  "C6",
+                  "S6"
+                ],
+                "line": 45
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 40300,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "HTB has a full house with a low triplet",
+            "match": {
+              "location": "FullHouseHighWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "D9",
+                  "D6",
+                  "H6"
+                ],
+                "line": 47
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 82900,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "AIP should win because it has the higher fullhouse triplet",
+            "match": {
+              "location": "FullHouseHighWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 50,
+        "name": "AIP and HTB both have a Three of a kind but AIP wins because it has the higher triplet",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-three-of-a-kind-but-aip-wins-because-it-has-the-higher-triplet",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 359800,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "AIP has a three of a kind with a high triplet",
+            "match": {
+              "location": "ThreeOfKindHighWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "D10",
+                  "H10",
+                  "C6",
+                  "S7"
+                ],
+                "line": 52
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 164500,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "HTB has a three of a kind with a low triplet",
+            "match": {
+              "location": "ThreeOfKindHighWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "D9",
+                  "D7",
+                  "H6"
+                ],
+                "line": 54
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 417500,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "AIP should win because it has the higher three of a kind triplet",
+            "match": {
+              "location": "ThreeOfKindHighWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 57,
+        "name": "AIP and HTB both have a Straight but AIP wins because it has the higher high card",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-straight-but-aip-wins-because-it-has-the-higher-high-card",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 117500,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "AIP has a straight with a high card",
+            "match": {
+              "location": "StraightHighWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "H9",
+                  "C8",
+                  "S6",
+                  "D7"
+                ],
+                "line": 59
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 55700,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "HTB has a straight with a low card",
+            "match": {
+              "location": "StraightHighWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C8",
+                  "D6",
+                  "C7",
+                  "H5"
+                ],
+                "line": 61
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 104100,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "AIP should win because it has the higher high card Straight",
+            "match": {
+              "location": "StraightHighWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 64,
+        "name": "AIP and HTB both have a Straight but AIP wins because it has the higher high card",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-straight-but-aip-wins-because-it-has-the-higher-high-card",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 87700,
+              "status": "passed"
+            },
+            "line": 65,
+            "name": "AIP has a straight with a high card",
+            "match": {
+              "location": "StraightHighWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "H9",
+                  "C8",
+                  "S6",
+                  "D7"
+                ],
+                "line": 66
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 33700,
+              "status": "passed"
+            },
+            "line": 67,
+            "name": "HTB has a straight with a low card",
+            "match": {
+              "location": "StraightHighWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C8",
+                  "D6",
+                  "C7",
+                  "H5"
+                ],
+                "line": 68
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 89700,
+              "status": "passed"
+            },
+            "line": 69,
+            "name": "AIP should win because it has the higher high card Straight",
+            "match": {
+              "location": "StraightHighWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 71,
+        "name": "AIP and HTB both have a Straight but AIP wins because it has the higher suit high card",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-straight-but-aip-wins-because-it-has-the-higher-suit-high-card",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 211400,
+              "status": "passed"
+            },
+            "line": 72,
+            "name": "AIP has a straight with a high suit card",
+            "match": {
+              "location": "StraightSuitWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S9",
+                  "H8",
+                  "C6",
+                  "S7",
+                  "D5"
+                ],
+                "line": 73
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 70700,
+              "status": "passed"
+            },
+            "line": 74,
+            "name": "HTB has a straight with a low suit card",
+            "match": {
+              "location": "StraightSuitWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C8",
+                  "D6",
+                  "C7",
+                  "H5"
+                ],
+                "line": 75
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 126200,
+              "status": "passed"
+            },
+            "line": 76,
+            "name": "AIP should win because it has the higher suit high card Straight",
+            "match": {
+              "location": "StraightSuitWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 78,
+        "name": "AIP and HTB both have a  the same two pair, AIP wins because it has the higher suit",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a--the-same-two-pair,-aip-wins-because-it-has-the-higher-suit",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 92300,
+              "status": "passed"
+            },
+            "line": 79,
+            "name": "AIP has a two pair with high suit pair",
+            "match": {
+              "location": "TwoPairSuitWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S9",
+                  "H9",
+                  "C10",
+                  "S7",
+                  "D7"
+                ],
+                "line": 80
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 35600,
+              "status": "passed"
+            },
+            "line": 81,
+            "name": "HTB has a two pair with low suit pair",
+            "match": {
+              "location": "TwoPairSuitWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "D6",
+                  "C7",
+                  "H7"
+                ],
+                "line": 82
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 247500,
+              "status": "passed"
+            },
+            "line": 83,
+            "name": "AIP should win because it has the higher suit high pair",
+            "match": {
+              "location": "TwoPairSuitWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 85,
+        "name": "AIP and HTB have a  distinct two pairs, AIP wins because it has the higher rank pair",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-have-a--distinct-two-pairs,-aip-wins-because-it-has-the-higher-rank-pair",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 114900,
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "AIP has a two pair with high rank pair",
+            "match": {
+              "location": "TwoPairRankWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S9",
+                  "H9",
+                  "C10",
+                  "S7",
+                  "D7"
+                ],
+                "line": 87
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 33900,
+              "status": "passed"
+            },
+            "line": 88,
+            "name": "HTB has a two pair with low rank pair",
+            "match": {
+              "location": "TwoPairRankWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H8",
+                  "C8",
+                  "D6",
+                  "C6",
+                  "H7"
+                ],
+                "line": 89
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 180900,
+              "status": "passed"
+            },
+            "line": 90,
+            "name": "AIP should win because it has the higher rank high pair",
+            "match": {
+              "location": "TwoPairRankWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 92,
+        "name": "AIP and HTB have a the same rank pairs, AIP wins because it has the higher suit pair",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-have-a-the-same-rank-pairs,-aip-wins-because-it-has-the-higher-suit-pair",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 466700,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "AIP has a pair with a higher suit pair",
+            "match": {
+              "location": "PairSuitWinner.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S9",
+                  "H9",
+                  "C2",
+                  "S3",
+                  "D6"
+                ],
+                "line": 94
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 82700,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "HTB has a two pair with a lower suit pair",
+            "match": {
+              "location": "PairSuitWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C9",
+                  "D2",
+                  "C6",
+                  "H7"
+                ],
+                "line": 96
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 185900,
+              "status": "passed"
+            },
+            "line": 97,
+            "name": "AIP should win because it has the higher suit among the two pairs",
+            "match": {
+              "location": "PairSuitWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 99,
+        "name": "AIP and HTB both have a high card of the same rank, AIP wins because his card has a higher suit",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-high-card-of-the-same-rank,-aip-wins-because-his-card-has-a-higher-suit",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 153800,
+              "status": "passed"
+            },
+            "line": 100,
+            "name": "AIP has a high card with a high suit",
+            "match": {
+              "location": "HighCardSuitWinner.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S9",
+                  "H4",
+                  "C2",
+                  "S3",
+                  "D6"
+                ],
+                "line": 101
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 83300,
+              "status": "passed"
+            },
+            "line": 102,
+            "name": "HTB has a high card with a low suit",
+            "match": {
+              "location": "HighCardSuitWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H9",
+                  "C4",
+                  "D2",
+                  "C6",
+                  "H7"
+                ],
+                "line": 103
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 125600,
+              "status": "passed"
+            },
+            "line": 104,
+            "name": "AIP should win because it has the higher suit card",
+            "match": {
+              "location": "HighCardSuitWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 106,
+        "name": "AIP and HTB both have a high card, AIP wins because his card has a higher rank",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-high-card,-aip-wins-because-his-card-has-a-higher-rank",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 117800,
+              "status": "passed"
+            },
+            "line": 107,
+            "name": "AIP has a high card with a high rank",
+            "match": {
+              "location": "HighCardRankWinner.storeAIPPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "H4",
+                  "C2",
+                  "S3",
+                  "D6"
+                ],
+                "line": 108
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 38100,
+              "status": "passed"
+            },
+            "line": 109,
+            "name": "HTB has a high card with a low rank",
+            "match": {
+              "location": "HighCardRankWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S9",
+                  "C4",
+                  "D2",
+                  "C6",
+                  "H7"
+                ],
+                "line": 110
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 137800,
+              "status": "passed"
+            },
+            "line": 111,
+            "name": "AIP should win because it has the higher rank card",
+            "match": {
+              "location": "HighCardRankWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 113,
+        "name": "AIP and HTB both have a flush, AIP wins because his flush has a higher high card",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-flush,-aip-wins-because-his-flush-has-a-higher-high-card",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 100000,
+              "status": "passed"
+            },
+            "line": 114,
+            "name": "AIP has a high card flush",
+            "match": {
+              "location": "FlushSuitWInnerC1.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "S8",
+                  "S6",
+                  "S4",
+                  "S3"
+                ],
+                "line": 115
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 43400,
+              "status": "passed"
+            },
+            "line": 116,
+            "name": "HTB has a low card flush",
+            "match": {
+              "location": "FlushSuitWInnerC1.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "H8",
+                  "H6",
+                  "H4",
+                  "H2"
+                ],
+                "line": 117
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 333900,
+              "status": "passed"
+            },
+            "line": 118,
+            "name": "AIP should win because it has the higher high card flush",
+            "match": {
+              "location": "FlushSuitWInnerC1.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 120,
+        "name": "AIP and HTB both have a flush, AIP wins because his flush has a higher suit, case one",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-flush,-aip-wins-because-his-flush-has-a-higher-suit,-case-one",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 104700,
+              "status": "passed"
+            },
+            "line": 121,
+            "name": "AIP has a higher suit flush case one",
+            "match": {
+              "location": "FlushSuitWinner.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "S4",
+                  "S2",
+                  "S3",
+                  "S6"
+                ],
+                "line": 122
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 69000,
+              "status": "passed"
+            },
+            "line": 123,
+            "name": "HTB has a lower suit flush case one",
+            "match": {
+              "location": "FlushSuitWinner.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "H4",
+                  "H2",
+                  "H3",
+                  "H6"
+                ],
+                "line": 124
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 154200,
+              "status": "passed"
+            },
+            "line": 125,
+            "name": "AIP should win because it has the higher suit flush case one",
+            "match": {
+              "location": "FlushSuitWinner.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 127,
+        "name": "AIP and HTB both have a flush, AIP wins because his flush has a higher suit, case two",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-flush,-aip-wins-because-his-flush-has-a-higher-suit,-case-two",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 100700,
+              "status": "passed"
+            },
+            "line": 128,
+            "name": "AIP has a higher suit flush case two",
+            "match": {
+              "location": "FlashSuitWinnerC2.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "S8",
+                  "S6",
+                  "S4",
+                  "S3"
+                ],
+                "line": 129
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 49000,
+              "status": "passed"
+            },
+            "line": 130,
+            "name": "HTB has a lower suit flush case two",
+            "match": {
+              "location": "FlashSuitWinnerC2.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "H8",
+                  "H6",
+                  "H3",
+                  "H2"
+                ],
+                "line": 131
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 142200,
+              "status": "passed"
+            },
+            "line": 132,
+            "name": "AIP should win because it has the higher suit flush case two",
+            "match": {
+              "location": "FlashSuitWinnerC2.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 134,
+        "name": "AIP and HTB both have a flush, AIP wins because his flush has a higher suit, case two",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-flush,-aip-wins-because-his-flush-has-a-higher-suit,-case-two",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 112900,
+              "status": "passed"
+            },
+            "line": 135,
+            "name": "AIP has a higher suit flush case three",
+            "match": {
+              "location": "FlashSuitWinnerC3.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "S8",
+                  "S6",
+                  "S4",
+                  "S3"
+                ],
+                "line": 136
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 45400,
+              "status": "passed"
+            },
+            "line": 137,
+            "name": "HTB has a lower suit flush case three",
+            "match": {
+              "location": "FlashSuitWinnerC3.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "H8",
+                  "H5",
+                  "H3",
+                  "H2"
+                ],
+                "line": 138
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 194000,
+              "status": "passed"
+            },
+            "line": 139,
+            "name": "AIP should win because it has the higher suit flush case three",
+            "match": {
+              "location": "FlashSuitWinnerC3.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 141,
+        "name": "AIP and HTB both have a flush, AIP wins because his flush has a higher suit, case two",
+        "description": "",
+        "id": "determining-winners-on-special-hands-for-aip-and-htb;aip-and-htb-both-have-a-flush,-aip-wins-because-his-flush-has-a-higher-suit,-case-two",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 109700,
+              "status": "passed"
+            },
+            "line": 142,
+            "name": "AIP has a higher suit flush case four",
+            "match": {
+              "location": "FlashSuitWinnerC4.storeAIBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "S10",
+                  "S8",
+                  "S6",
+                  "S4",
+                  "S3"
+                ],
+                "line": 143
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 52600,
+              "status": "passed"
+            },
+            "line": 144,
+            "name": "HTB has a lower suit flush case four",
+            "match": {
+              "location": "FlashSuitWinnerC4.storeHTBPokerHand(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "H10",
+                  "H7",
+                  "H5",
+                  "H3",
+                  "H2"
+                ],
+                "line": 145
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 146000,
+              "status": "passed"
+            },
+            "line": 146,
+            "name": "AIP should win because it has the higher suit flush case four",
+            "match": {
+              "location": "FlashSuitWinnerC4.winnerIs()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Determining winners on special hands for AIP and HTB",
+    "description": "",
+    "id": "determining-winners-on-special-hands-for-aip-and-htb",
+    "keyword": "Feature",
+    "uri": "SpecialWinners.feature"
+  }
+]
